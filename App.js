@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { useState } from "react";
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -56,9 +56,9 @@ export default class App extends React.Component {
               <Text style={style.LogButtonText}>Log in</Text>
             </TouchableOpacity>
             <View style={style.EndText}>
-              <Text style={{fontSize: 17}}>Don't have an account?</Text>
+              <Text style={{ fontSize: 17 }}>Don't have an account?</Text>
               <TouchableOpacity>
-              <Text style={style.signUpText}> Sign up</Text>
+                <Text style={style.signUpText}> Sign up</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -117,12 +117,12 @@ const style = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  EndText:{
-    flexDirection:"row",
-    alignSelf:"center"
+  EndText: {
+    flexDirection: "row",
+    alignSelf: "center",
   },
   signUpText: {
     fontSize: 17,
     color: "indigo",
-},
+  },
 });
