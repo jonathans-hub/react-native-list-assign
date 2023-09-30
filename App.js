@@ -9,108 +9,37 @@ import {
   FlatList,
   Image,
 } from "react-native";
-import johnPro from "./assets/johndoe.jpeg";
-import janePro from "./assets/janesmith.jpeg";
-import bobPro from "./assets/bobjohnson.png";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { SimpleLineIcons } from "@expo/vector-icons";
-
+import smittensPho from "./assets/mrsmittens.jpeg";
+import katakuriPho from "./assets/katakuri.jpeg";
+import snowyPho from "./assets/snowy.jpeg";
+import { AntDesign } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      contacts: [
+      pets: [
         {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
+          petName: "Mr. Smittens",
+          petType: "Cat",
+          petAge: "2 years old",
+          petLocation: "456 Elm St, Townsville",
+          petPicture: smittensPho,
         },
         {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
+          petName: "Katakuri",
+          petType: "Dog",
+          petAge: "4 years old ",
+          petLocation: "3 Main St, Townsville",
+          petPicture: katakuriPho,
         },
         {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
-        },
-        {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
-        },
-        {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
-        },
-        {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
-        },
-        {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
-        },
-        {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
-        },
-        {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
-        },
-        {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
-        },
-        {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
-        },
-        {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
-        },
-        {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
-        },
-        {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
-        },
-        {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
-        },
-        {
-          fullName: "John Doe",
-          phoneNumber: "+1234567890",
-          profilePicture: johnPro,
-        },
-        {
-          fullName: "Jane Smith",
-          phoneNumber: "+9876543210",
-          profilePicture: janePro,
-        },
-        {
-          fullName: "Bob Johnson",
-          phoneNumber: "+4567890123",
-          profilePicture: bobPro,
+          petName: "Snowy",
+          petType: "Dog",
+          petAge: "6 years old",
+          petLocation: "789 Oak St, Townsville",
+          petPicture: snowyPho,
         },
       ],
     };
@@ -118,8 +47,13 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={style.container}>
+        <View style={style.workArea}>
+        <View style={style.searchArea}>
+          <View style={style.searchButton}><TouchableOpacity><AntDesign name="search1" size={30} color="black" /></TouchableOpacity></View>
+          <TextInput placeholder="Search here" style={{flex:1,fontSize:19}}/>
+        </View>
         <FlatList
-          data={this.state.contacts}
+          data={this.state.pets}
           style={style.flatListt}
           scrollEnabled={true}
           showsVerticalScrollIndicator={false}
@@ -127,34 +61,22 @@ export default class App extends React.Component {
             return (
               <View style={style.rowCon}>
                 <View style={style.ImgDiv}>
-                  <Image
-                    source={item.profilePicture}
-                    style={style.profilePic}
-                  />
+                  <Image source={item.petPicture} style={style.petPic} />
                 </View>
                 <View style={style.textDiv}>
-                  <Text style={style.textInDiv}>{item.fullName}</Text>
-                  <Text style={style.textInDiv}>{item.phoneNumber}</Text>
-                </View>
-                <View style={style.roww}>
-                  <TouchableOpacity style={style.iconTO}>
-                    <FontAwesome5 name="phone-alt" size={22} color="#24a0ed" />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={style.iconTO}>
-                    <MaterialIcons name="message" size={22} color="#24a0ed" />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={style.iconTO}>
-                    <SimpleLineIcons
-                      name="options-vertical"
-                      size={22}
-                      color="lightgrey"
-                    />
-                  </TouchableOpacity>
+                  <Text style={[style.textInDiv,style.textDiv1]}>{item.petName}</Text>
+                  <Text style={style.textInDiv}>{item.petType}</Text>
+                  <Text style={style.textInDiv}>{item.petAge}</Text>
+                  <View style={style.roww1}>
+                    <View style={style.iconn1}><EvilIcons name="location" size={18} color="black" /></View>
+                    <Text style={ {fontSize: 15}}>{item.petLocation}</Text>
+                  </View>
                 </View>
               </View>
             );
           }}
         />
+        </View>
       </View>
     );
   }
@@ -162,33 +84,70 @@ export default class App extends React.Component {
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.91,
+    borderRadius:30,
     marginTop: 60,
+    backgroundColor:"lightgrey"
+  },
+  workArea:{
+    marginHorizontal:20,
+    
+  },
+  searchArea:{
+    alignItems:"center",
+    flexDirection:"row",
+    backgroundColor:"white",
+    marginTop:30,
+    marginBottom:20,
+    height:60,
+    borderRadius:20,
+    paddingHorizontal:20
+    
+  },
+  searchButton:{
+    width:40,
+    alignItems:"center",
+    marginRight:5
   },
   rowCon: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    height:110
+    height: 240,
   },
-  profilePic: {
-    height: 70,
-    width: 70,
-    borderRadius: 35,
+  petPic: {
+    height: 210,
+    width: 190,
+    borderRadius: 20,
   },
   textDiv: {
     flexDirection: "column",
-    marginRight: 45,
-    marginLeft: 20,
+    backgroundColor:"white",
+    height:150,
+    flex:1,
+    borderTopRightRadius:20,
+    borderBottomRightRadius:20,
+    paddingVertical:10,
+    paddingBottom:10
   },
   textInDiv: {
     fontSize: 15,
+    marginBottom:8, 
+    paddingLeft:10
   },
-  iconTO: {
-    marginLeft: 20,
+  textDiv1:{
+    color:"indigo",
+    fontWeight:"bold",
+    fontSize:25
   },
   roww: {
     flexDirection: "row",
     alignItems: "center",
   },
+  roww1:{
+    flexDirection:"row",
+    alignItems:"center",
+    marginBottom:8, 
+    paddingLeft:5
+  },
+
 });
