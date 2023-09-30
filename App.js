@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ScrollView,
   View,
   Text,
   StyleSheet,
@@ -19,7 +20,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={style.container}>
+      <ScrollView style={style.container}>
         <View style={style.containerDiv}>
           <View style={style.signInBox}>
             <Text style={style.loginText}>Log in</Text>
@@ -63,7 +64,7 @@ export default class App extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
