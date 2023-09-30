@@ -6,65 +6,156 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  FlatList,
+  Image,
 } from "react-native";
-
+import johnPro from "./assets/johndoe.jpeg";
+import janePro from "./assets/janesmith.jpeg";
+import bobPro from "./assets/bobjohnson.png";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
+      contacts: [
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+        {
+          fullName: "John Doe",
+          phoneNumber: "+1234567890",
+          profilePicture: johnPro,
+        },
+        {
+          fullName: "Jane Smith",
+          phoneNumber: "+9876543210",
+          profilePicture: janePro,
+        },
+        {
+          fullName: "Bob Johnson",
+          phoneNumber: "+4567890123",
+          profilePicture: bobPro,
+        },
+      ],
     };
   }
   render() {
     return (
-      <ScrollView style={style.container}>
-        <View style={style.containerDiv}>
-          <View style={style.signInBox}>
-            <Text style={style.loginText}>Log in</Text>
-            <TextInput
-              style={[style.textInputArea, { marginBottom: 50 }]}
-              // secureTextEntry={true}
-              autoCorrect={false}
-              autoCapitalize="none"
-              placeholder="username"
-              value={this.state.username}
-              onChangeText={(username) => {
-                this.setState({ username });
-                console.log(this.state.username);
-              }}
-            />
-            <TextInput
-              style={style.textInputArea}
-              secureTextEntry={true}
-              autoCorrect={false}
-              autoCapitalize="none"
-              placeholder="password"
-              value={this.state.password}
-              onChangeText={(password) => {
-                this.setState({ password });
-                console.log(this.state.password);
-              }}
-            />
-            <View style={style.forgetTO}>
-              <TouchableOpacity>
-                <Text style={style.forgetTOText}>Forgot password?</Text>
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity style={style.logButtonTO}>
-              <Text style={style.LogButtonText}>Log in</Text>
-            </TouchableOpacity>
-            <View style={style.EndText}>
-              <Text style={{ fontSize: 17 }}>Don't have an account?</Text>
-              <TouchableOpacity>
-                <Text style={style.signUpText}> Sign up</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
+      <View style={style.container}>
+        <FlatList
+          data={this.state.contacts}
+          style={style.flatListt}
+          scrollEnabled={true}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => {
+            return (
+              <View style={style.rowCon}>
+                <View style={style.ImgDiv}>
+                  <Image
+                    source={item.profilePicture}
+                    style={style.profilePic}
+                  />
+                </View>
+                <View style={style.textDiv}>
+                  <Text style={style.textInDiv}>{item.fullName}</Text>
+                  <Text style={style.textInDiv}>{item.phoneNumber}</Text>
+                </View>
+                <View style={style.roww}>
+                  <TouchableOpacity style={style.iconTO}>
+                    <FontAwesome5 name="phone-alt" size={22} color="#24a0ed" />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={style.iconTO}>
+                    <MaterialIcons name="message" size={22} color="#24a0ed" />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={style.iconTO}>
+                    <SimpleLineIcons
+                      name="options-vertical"
+                      size={22}
+                      color="lightgrey"
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            );
+          }}
+        />
+      </View>
     );
   }
 }
@@ -72,58 +163,32 @@ export default class App extends React.Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 60,
   },
-  containerDiv: {
-    marginTop: 100,
-    margin: 40,
-    borderColor: "lightgrey",
-    borderWidth: 4,
-    borderRadius: 20,
-    height: 730,
-  },
-  signInBox: {
-    padding: 20,
-  },
-  loginText: {
-    marginVertical: 70,
-    fontSize: 40,
-    color: "indigo",
-    fontWeight: "bold",
-  },
-  textInputArea: {
-    borderBottomColor: "indigo",
-    borderBottomWidth: 2,
-    paddingBottom: 10,
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  forgetTO: {
-    alignItems: "flex-end",
-  },
-  forgetTOText: {
-    fontSize: 18,
-    color: "#24a0ed",
-  },
-  logButtonTO: {
-    marginTop: 80,
-    alignItems: "center",
-    justifyContent: "center",
-    height: 60,
-    backgroundColor: "indigo",
-    borderRadius: 20,
-    marginBottom: 50,
-  },
-  LogButtonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  EndText: {
+  rowCon: {
     flexDirection: "row",
-    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    height:110
   },
-  signUpText: {
-    fontSize: 17,
-    color: "indigo",
+  profilePic: {
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+  },
+  textDiv: {
+    flexDirection: "column",
+    marginRight: 45,
+    marginLeft: 20,
+  },
+  textInDiv: {
+    fontSize: 15,
+  },
+  iconTO: {
+    marginLeft: 20,
+  },
+  roww: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
