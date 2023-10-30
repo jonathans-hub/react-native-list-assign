@@ -24,7 +24,7 @@ export default class App extends React.Component {
           petName: "Mr. Smittens",
           petType: "Cat",
           petAge: "2 years old",
-          petLocation: "456 Elm St, Townsville",
+          petLocation: "4 Elm St, Townsville",
           petPicture: smittensPho,
         },
         {
@@ -38,7 +38,7 @@ export default class App extends React.Component {
           petName: "Snowy",
           petType: "Dog",
           petAge: "6 years old",
-          petLocation: "789 Oak St, Townsville",
+          petLocation: "7 Oak St, Townsville",
           petPicture: snowyPho,
         },
       ],
